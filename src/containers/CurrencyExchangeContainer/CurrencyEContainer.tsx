@@ -147,6 +147,6 @@ const CurrencyEContainer: React.FC = () => {
 // type TProps = ConnectedProps<typeof connector>;
 //
 // export default connector(CurrencyEContainer);
-export default connector(CurrencyEContainer)
+export default CurrencyEContainer
 
 
