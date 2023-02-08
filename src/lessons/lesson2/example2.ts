@@ -1,5 +1,3 @@
-
-
 export const print = (name: string) => {
     console.log(`hello, ${name}`)
 }
@@ -45,7 +43,6 @@ const func2 = (a: number) => (b: number) => (c: number) => (d: number) => (e: nu
 func2(1)(2)(3)(4)(5)
 
 
-
 const createCounter = (initValue: number) => {
     const counter = {
         increment() {
@@ -64,3 +61,18 @@ const counter2 = createCounter(20)
 counter1.increment()//11
 counter1.increment()//12
 counter2.increment()//21
+
+
+/* .. ваш код для inBetween и inArray */
+let arr = [1, 2, 3, 4, 5, 6, 7];
+
+const inBetween = (start: number, end: number) => {
+    return (el: number) => {
+        return el >= start && el <= end
+    }
+}
+
+console.log(arr.filter(inBetween(1, 7))); // 3,4,5,6
+
+
+
