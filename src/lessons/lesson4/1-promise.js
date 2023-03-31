@@ -19,19 +19,26 @@ wait(1000)
     .then((two) => console.log(two))
     .then(() => wait(3000))
     .then((three) => console.log(three))
-    .catch((err)=>{console.warn(err)})
+    .catch((err) => {
+        console.warn(err)
+    })
 
 
 async function run() {
-    const one = await wait(1000)
-    await console.log(`${one} ms`)
-    await console.log(1)
-    const two = await wait(2000)
-    await console.log(`${two} ms`)
-    await console.log(2)
-    const three = await wait(3000)
-    await console.log(`${three} ms`)
-    await console.log(3)
+    try {
+        const one = await wait(1000)
+        await console.log(`${one} ms`)
+        await console.log(1)
+        const two = await wait(2000)
+        await console.log(`${two} ms`)
+        await console.log(2)
+        const three = await wait(3000)
+        await console.log(`${three} ms`)
+        await console.log(3)
+    } catch (error) {
+        console.warn(error)
+    }
+
 }
 
 run()
@@ -56,3 +63,11 @@ allPromises.then((array) => {
     console.log(array[1])
 
 })
+
+
+const api = {
+    async gerUsers() {
+        await wait(2000)
+        return [{id: 1, name: 'Oleg'},]
+    }
+}
