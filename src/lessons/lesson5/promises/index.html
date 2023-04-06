@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let pr = new Promise((resolved, rejected) => {
+    //
+    //     resolved() //выполненый pr
+    //     rejected() // не выполненный pr
+    //
+    // })
+
+    // let axios = {
+    //     get() {
+    //         return new Promise((res, rej) => {
+    //             setTimeout(() => {
+    //                 res('hello')
+    //             }, 1000)
+    //         })
+    //     }
+    // }
+    //
+    // axios.get()
+    //     .then((data) => {
+    //         console.log(data)
+    //         return data
+    //     }) // в дате будет сидеть 'hello'
+    //     .then((message) => {
+    //         console.log(message) //тут тоже будет 'hello' т.к предыдущий промис возвращает 'hello'
+    //     })
+    //     .then(() => {
+    //         console.log(2)
+    //     })
+    //     .catch((data) => console.log(data)) //если протим зареджектится, то мы попадем в кэтч
+
+    let axios = {
+        get() {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    res({
+                        g: 1,
+                        g3: 'xx',
+                        message: 'MESSAGE'
+                    })
+                }, 1000)
+            })
+        }
+    }
+
+    axios.get()
+        .then((data) => {
+            console.log(data.message)
+            return data.message
+        }) // в дате будет сидеть 'hello'
+        .then((message) => {
+            console.log(message) //тут тоже будет 'hello' т.к предыдущий промис возвращает 'hello'
+        })
+        .catch((data) => console.log(data)) //если протим зареджектится, то мы попадем в кэтч
+</script>
+</body>
+</html>
